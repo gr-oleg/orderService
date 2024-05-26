@@ -1,4 +1,4 @@
-package com.item.orderService.model;
+package com.order.orderservice.model;
 
 import jakarta.persistence.*;
 

@@ -1,8 +1,7 @@
-package com.item.itemservice.controller;
+package com.order.orderservice.controller;
 
-import com.item.itemservice.model.item;
-import com.item.itemservice.repository.itemRepository;
-import com.item.itemservice.service.itemService;
+import com.order.orderservice.model.order;
+import com.order.orderservice.service.orderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,33 +9,37 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/item")
+@RequestMapping("/order")
 @CrossOrigin
-public class itemController {
+public class orderController {
     @Autowired
-    private itemService itemService;
+    private orderService orderService;
 
-    @PostMapping("/add")
-    public String add(@RequestBody item item){
-        Optional<item> existingItem = itemService.findById(item.getId());
-        itemService.saveItem(item);
-        return "New item is added";
-    }
+@PostMapping("/add")
+public String add(@RequestBody order order){
+    Optional<order> existingItem = orderService.findById(order.getId());
+    orderService.saveOrder(order);
+    return "Order accepted!";
+}
 
     @GetMapping("/getAll")
-    public List<item> getAllItem(){
-        return itemService.getAllItems();
+    public List<order> getAllOrders(){
+        return orderService.getAllOrders();
     }
 
-    @GetMapping("/{id}")
-        Optional<item> getUserById(@PathVariable int id){
-        return itemService.findById(id);
+    @GetMapping("/id/{id}")
+    public Optional<order> getOrderById(@PathVariable int id){
+        return orderService.findById(id);
     }
 
-    private itemRepository itemRepository;
-    @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable Long id) {
-        itemRepository.deleteById(id);
-        return "Item with id " + id + " has been deleted successfully.";
+    @GetMapping("/idItems/{idItems}")
+    public List<order> getOrdersByIdItems(@PathVariable int idItems){
+        return orderService.findByIdItems(idItems);
     }
+
+    @GetMapping("/idUser/{idUser}")
+    public List<order> getOrdersByIdUser(@PathVariable int idUser){
+        return orderService.findByIdUser(idUser);
+    }
+
 }

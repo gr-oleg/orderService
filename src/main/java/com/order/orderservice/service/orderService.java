@@ -1,6 +1,6 @@
-package com.item.orderService.service;
+package com.order.orderservice.service;
 
-import com.item.orderService.model.order;
+import com.order.orderservice.model.order;
 
 import java.util.List;
 import java.util.Optional;
