@@ -9,6 +9,6 @@ public interface orderService {
     public order saveOrder(order order);
     List<order> getAllOrders();
     Optional<order> findById(int id);
-    List<order> findByIdItems(int idItems);
+    List<order> findByIdItems(String idItems);
     List<order> findByIdUser(int idUser);
 }

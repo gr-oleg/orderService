@@ -30,7 +30,7 @@ public class orderServiceImpl implements orderService {
     }
 
     @Override
-    public List<order> findByIdItems(int idItems) {
+    public List<order> findByIdItems(String idItems) {
         return orderRepository.findByIdItems(idItems);
     }
 

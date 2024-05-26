@@ -33,7 +33,7 @@ public String add(@RequestBody order order){
     }
 
     @GetMapping("/idItems/{idItems}")
-    public List<order> getOrdersByIdItems(@PathVariable int idItems){
+    public List<order> getOrdersByIdItems(@PathVariable String idItems){
         return orderService.findByIdItems(idItems);
     }
 
