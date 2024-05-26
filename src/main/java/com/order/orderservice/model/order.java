@@ -19,7 +19,7 @@ public class order {
     private String address;
 
     @Column(name = "id_items")
-    private int idItems;
+    private String idItems;
 
     @Column(name = "total_price")
     private String totalPrice;
@@ -41,9 +41,9 @@ public class order {
 
     public void setIdUser(int idUser) { this.idUser = idUser; }
 
-    public int getidItems() { return idItems; }
+    public String getidItems() { return idItems; }
 
-    public void setidItems(int idItems) { this.idItems = idItems; }
+    public void setidItems(String idItems) { this.idItems = idItems; }
 
     public String getPhoneNumber() {
         return phoneNumber;
